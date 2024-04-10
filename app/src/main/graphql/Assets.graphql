@@ -1,0 +1,13 @@
+query Assets {
+    assetCollection {
+#        total
+        items {
+            title
+#            description # most of the descriptions are null
+#            fileName
+#            size
+#            contentType
+            url
+        }
+    }
+}
