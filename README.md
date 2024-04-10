@@ -5,12 +5,14 @@ A Franken-App to develop capabilities in several aspects of Android mobile devel
 ## Getting Started
 
 [The Android Developer website's courses, codelabs and documentation](https://developer.android.com/) 
-is the source for much of the development work on this project.
+is the source for much of the development work on this project. [Kodeco](https://www.kodeco.com/), [Contentful](https://www.contentful.com/developers/docs/android/tutorials/using-contentful-graphql-with-android/) and [Apollo GraphQL](https://www.apollographql.com/docs/kotlin)
 
 Steps to run this app:
 - Download Android Studio
-- Run `git clone https://github.com/whysinati/mixta.git`
-
+- Run command `git clone https://github.com/whysinati/mixta.git` in the desired location for the repository.
+- Open the project in Android Studio, allow to sync, then build and run on the emulator.
+- In order to get the API data, add a new `keystore.properties` file in the root project directory and add the following line (you can use the token from the Contentful Kotlin tutorial):
+  `token="<your_contentful_token_goes_here>"`
 
 ## Android Architecture, Libraries and References
 
@@ -30,7 +32,7 @@ Steps to run this app:
 
 ## What's next?
 
-- ****** before i push this, set the contentful token as a secret; github actions or local properties or ...?
+- Consider alternatives to store tokens and keys securely as a secrets and enable use with a pipeline
 - Add a Repository to manage the data sources
 - Add a CI/CD pipeline
 - Add Unit and UI testing
@@ -38,3 +40,4 @@ Steps to run this app:
 - Leverage the security-crypto library to access PKI tokens and store in SecureElement with EncryptedSharedPreferences
 - Setup Android Gradle build security via dependency verification, repository filtering and other gradle verifications
 - Add build signing
+- Setup Automated Google Play deployment, perhaps leveraging Fastlane
