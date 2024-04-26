@@ -41,3 +41,4 @@ Steps to run this app:
 - Setup Android Gradle build security via dependency verification, repository filtering and other gradle verifications
 - Add build signing
 - Setup Automated Google Play deployment, perhaps leveraging Fastlane
+- Refactor Navigation

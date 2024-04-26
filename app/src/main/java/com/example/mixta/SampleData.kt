@@ -1,4 +1,4 @@
-import com.example.mixta.Message
+import com.example.mixta.ui.Message
 
 /**
  * SampleData for Jetpack Compose Tutorial 
