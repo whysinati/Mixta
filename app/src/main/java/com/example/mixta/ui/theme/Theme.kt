@@ -19,19 +19,21 @@ import androidx.core.view.WindowCompat
 private val DarkColorScheme = darkColorScheme(
     surface = Blue,
     onSurface = Navy,
-    primary = Navy, //Purple80,
-    onPrimary = Chartreuse,
-    //secondary = PurpleGrey80,
-    //tertiary = Pink80
+    primary = Navy,
+    // primary = Purple80,
+    onPrimary = Chartreuse
+    // secondary = PurpleGrey80,
+    // tertiary = Pink80
 )
 
 private val LightColorScheme = lightColorScheme(
     surface = Blue,
     onSurface = Color.White,
-    primary = LightBlue,//Purple40,
-    onPrimary = Navy,
-    //secondary = PurpleGrey40,
-    //tertiary = Pink40
+    primary = LightBlue,
+    // primary = Purple40,
+    onPrimary = Navy
+    // secondary = PurpleGrey40,
+    // tertiary = Pink40
 
     /* Other default colors to override
     background = Color(0xFFFFFBFE),
@@ -41,15 +43,16 @@ private val LightColorScheme = lightColorScheme(
     onTertiary = Color.White,
     onBackground = Color(0xFF1C1B1F),
     onSurface = Color(0xFF1C1B1F),
-    */
+     */
 )
 
 @Composable
 fun MixtaTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     // Dynamic color is available on Android 12+
-    dynamicColor: Boolean = true, // toggle this to `false` to check colors on pre-12
-    content: @Composable () -> Unit
+    // toggle this to `false` to check colors on pre-12
+    dynamicColor: Boolean = true,
+    content: @Composable () -> Unit,
 ) {
     val colorScheme = when {
         dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {

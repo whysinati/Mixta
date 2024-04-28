@@ -60,7 +60,6 @@ private fun Asset(item: AssetsQuery.Item?, modifier: Modifier = Modifier) {
         if (item != null) {
             CardContent(item)
         }
-
     }
 }
 
@@ -75,21 +74,23 @@ fun CardContent(itm: AssetsQuery.Item) {
                     dampingRatio = Spring.DampingRatioMediumBouncy,
                     stiffness = Spring.StiffnessLow
                 )
-            ),
+            )
     ) {
-        Column(modifier = Modifier
-            .weight(1f)
-            .padding(12.dp)
+        Column(
+            modifier = Modifier
+                .weight(1f)
+                .padding(12.dp)
         ) {
             itm.title?.let {
                 Text(
                     text = it,
+                    // how to adhoc modify existing style in use using `copy`
                     style = MaterialTheme.typography.headlineSmall.copy(
                         fontWeight = FontWeight.ExtraBold
-                    ) // how to adhoc modify existing style in use using `copy`
+                    )
                 )
             }
-            if (expanded)
+            if (expanded) {
                 itm.url?.let {
                     AsyncImage(
                         model = ImageRequest.Builder(LocalContext.current)
@@ -101,12 +102,16 @@ fun CardContent(itm: AssetsQuery.Item) {
                         contentScale = ContentScale.Fit
                     )
                 }
+            }
         }
         IconButton(onClick = { expanded = !expanded }) {
             Icon(
                 imageVector = if (expanded) Icons.Filled.ExpandLess else Icons.Filled.ExpandMore,
-                contentDescription = if (expanded) stringResource(id = R.string.show_less)
-                else stringResource(id = R.string.show_more),
+                contentDescription = if (expanded) {
+                    stringResource(id = R.string.show_less)
+                } else {
+                    stringResource(id = R.string.show_more)
+                }
             )
         }
     }

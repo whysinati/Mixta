@@ -22,6 +22,7 @@ Steps to run this app:
 - Version Catalog Dependency Management
 - Gradle with Kotlin DSL build configuration
 - Coil image loading
+- [KtLint](https://github.com/JLLeitschuh/ktlint-gradle) 
 
 ## Troubleshooting notes
 

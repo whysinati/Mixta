@@ -3,4 +3,5 @@ plugins {
     alias(libs.plugins.androidApplication) apply false
     alias(libs.plugins.jetbrainsKotlinAndroid) apply false
     alias(libs.plugins.apolloGraphQl) apply false
+    alias(libs.plugins.ktLint) apply false
 }

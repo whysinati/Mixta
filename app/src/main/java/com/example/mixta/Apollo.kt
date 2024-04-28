@@ -1,25 +1,21 @@
 package com.example.mixta
 
-import android.content.Context
-import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.stringResource
-import androidx.core.content.ContextCompat.getString
 import com.apollographql.apollo3.ApolloClient
 import com.apollographql.apollo3.network.okHttpClient
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.Response
 
-const val space = "f8bqpb154z8p"
+const val CONTENTFUL_SPACE = "f8bqpb154z8p"
 val token = BuildConfig.TOKEN
 
 private class AuthorizationInterceptor() : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
         val request = chain.request().newBuilder()
             .apply {
-                //TokenRepository.getToken()?.let { token ->
-                    addHeader("Authorization", "Bearer $token")
-                //}
+                // TokenRepository.getToken()?.let { token ->
+                addHeader("Authorization", "Bearer $token")
+                // }
             }
             .build()
         return chain.proceed(request)
@@ -27,7 +23,7 @@ private class AuthorizationInterceptor() : Interceptor {
 }
 
 val apolloClient = ApolloClient.Builder()
-    .serverUrl("https://graphql.contentful.com/content/v1/spaces/$space")
+    .serverUrl("https://graphql.contentful.com/content/v1/spaces/$CONTENTFUL_SPACE")
     .okHttpClient(
         OkHttpClient.Builder()
             .addInterceptor(AuthorizationInterceptor())

@@ -31,7 +31,7 @@ enum class MixtaScreen {
     Onboarding,
     Assets,
     Conversation,
-    News
+    News,
 }
 
 @Composable
@@ -39,7 +39,7 @@ fun OnboardingScreen(
     onAssetsClicked: () -> Unit,
     onConversationClicked: () -> Unit,
     onNewsClicked: () -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     Column(
         modifier = modifier.fillMaxSize(),
@@ -61,13 +61,13 @@ fun OnboardingScreen(
         }
         Button(
             modifier = Modifier.fillMaxWidth(0.65f),
-            onClick = onConversationClicked,
+            onClick = onConversationClicked
         ) {
             Text("Continue to Conversation")
         }
         Button(
             modifier = Modifier.fillMaxWidth(0.65f),
-            onClick = onNewsClicked,
+            onClick = onNewsClicked
         ) {
             Text("Continue to News Card")
         }
@@ -76,9 +76,7 @@ fun OnboardingScreen(
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MixtaApp(
-    navController: NavHostController = rememberNavController()
-) {
+fun MixtaApp(navController: NavHostController = rememberNavController()) {
     Scaffold(
         topBar = {
             CenterAlignedTopAppBar(title = { Text("Mixta") })
@@ -92,7 +90,11 @@ fun MixtaApp(
             composable(MixtaScreen.Onboarding.name) {
                 OnboardingScreen(
                     onAssetsClicked = { navController.navigate(MixtaScreen.Assets.name) },
-                    onConversationClicked = { navController.navigate(MixtaScreen.Conversation.name) },
+                    onConversationClicked = {
+                        navController.navigate(
+                            MixtaScreen.Conversation.name
+                        )
+                    },
                     onNewsClicked = { navController.navigate(MixtaScreen.News.name) },
                     modifier = Modifier.fillMaxSize()
                 )
@@ -120,7 +122,9 @@ fun MixtaApp(
 @Composable
 fun OnboardingPreview() {
     MixtaTheme {
-        OnboardingScreen(onAssetsClicked = { /* empty */ }, onConversationClicked = { /* empty */ }, onNewsClicked = { /* empty */ })
+        OnboardingScreen(onAssetsClicked = {
+            /* empty */
+        }, onConversationClicked = { /* empty */ }, onNewsClicked = { /* empty */ })
     }
 }
 

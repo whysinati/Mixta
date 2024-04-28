@@ -1,7 +1,7 @@
 import com.example.mixta.ui.Message
 
 /**
- * SampleData for Jetpack Compose Tutorial 
+ * SampleData for Jetpack Compose Tutorial
  */
 object SampleData {
     // Sample conversation data
@@ -70,6 +70,6 @@ object SampleData {
         Message(
             "Lexi",
             "Have you tried writing build.gradle with KTS?"
-        ),
+        )
     )
 }

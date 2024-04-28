@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.jetbrainsKotlinAndroid)
     alias(libs.plugins.apolloGraphQl)
     alias(libs.plugins.googleFigmaRelay)
+    alias(libs.plugins.ktLint)
 }
 
 // Creates a variable called keystorePropertiesFile, and initializes it to the
@@ -17,7 +18,7 @@ val keystoreProperties = Properties()
 
 // Loads the keystore.properties file into the keystoreProperties object.
 keystoreProperties.load(FileInputStream(keystorePropertiesFile))
-//keystoreProperties.getProperty("token")
+// keystoreProperties.getProperty("token")
 android {
     namespace = "com.example.mixta"
     compileSdk = 34
@@ -39,7 +40,7 @@ android {
         defaultConfig {
             buildConfigField("String", "TOKEN", keystoreProperties.getProperty("token"))
             resValue("string", "token", keystoreProperties.getProperty("token"))
-        //            buildConfigField("String", "BUILD_TIME", "\"${minutesSinceEpoch}\"")
+            //            buildConfigField("String", "BUILD_TIME", "\"${minutesSinceEpoch}\"")
 //            resValue("string", "build_time", "${minutesSinceEpoch}")
         }
         release {
