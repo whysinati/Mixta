@@ -4,4 +4,12 @@
     <string name="show_more">Show more</string>
     <string name="lorem">"Composem ipsum color sit lazy, "</string>
     <string name="ipsum">"padding theme elit, sed do bouncy. "</string>
+    <string name="assets">Assets</string>
+    <string name="conversation">Conversation</string>
+    <string name="news">News</string>
+    <string name="back_button">Back</string>
+    <string name="welcome_to_mixta">Welcome to Mixta!</string>
+    <string name="continue_to_design_assets">Continue to Design Assets</string>
+    <string name="continue_to_conversation">Continue to Conversation</string>
+    <string name="continue_to_news_card">Continue to News Card</string>
 </resources>
