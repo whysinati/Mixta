@@ -8,6 +8,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - run: |
+          echo "${{ secrets.KEYSTORE_PROPERTIES }}" > keystore.properties.asc
+          gpg -d --passphrase "${{ secrets.KEYSTORE_PROPERTIES_PASSPHRASE }}" --batch keystore.properties.asc > keystore.properties
+
       - uses: actions/setup-java@v4
         with:
           distribution: 'zulu'
@@ -41,7 +45,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-        run: |
+
+      - run: |
           echo "${{ secrets.KEYSTORE_PROPERTIES }}" > keystore.properties.asc
           gpg -d --passphrase "${{ secrets.KEYSTORE_PROPERTIES_PASSPHRASE }}" --batch keystore.properties.asc > keystore.properties
 
