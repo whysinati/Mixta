@@ -23,6 +23,9 @@ jobs:
           distribution: 'zulu'
           java-version: '21'
 
+      - name: Linter
+        run: ./gradlew --continue ktlintCheck
+
       - name: Unit Tests
         run: ./gradlew testDebugUnitTest
 
